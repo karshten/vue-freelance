@@ -1,11 +1,15 @@
 <template>
-    <SideBar :showSideBar="showSideBar"/>
-    <Header @onShowSideBar="showSideBar = true"/>
-    <main @click="showSideBar = false">
-        <div class="container">
-            <RouterView/>
+    <div class="wrapper">
+        <SideBar :showSideBar="showSideBar"/>
+        <div class="wrapper__content">
+            <Header @onShowSideBar="showSideBar = true"/>
+            <main>
+                <div class="container">
+                    <RouterView/>
+                </div>
+            </main>
         </div>
-    </main>
+    </div>
 </template>
 
 <script>
@@ -15,12 +19,19 @@
 
     export default {
         components: {SideBar, Header},
-        setup() {
-            const showSideBar = ref(false)
+        setup(props, context) {
+            const showSideBar = ref(true)
             return {showSideBar}
         }
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+    .wrapper {
+        display: flex;
+
+        &__content {
+            margin-left: 75px;
+        }
+    }
 </style>

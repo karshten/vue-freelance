@@ -24,6 +24,7 @@
         & .search {
             display: flex;
             align-items: center;
+            margin: 0 25px;
 
             &__icon {
                 border: none;

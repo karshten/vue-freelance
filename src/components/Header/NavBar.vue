@@ -63,7 +63,7 @@
 
             &__item {
                 display: flex;
-                margin-right: 46px;
+                margin-right: 36px;
             }
 
             &__icon {

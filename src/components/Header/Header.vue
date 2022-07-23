@@ -1,13 +1,15 @@
 <template>
     <header class="header">
-        <SideBarButton @onShowSideBar="handleShowSideBar"/>
-        <NavBar/>
-        <Search/>
-        <RegisterLink/>
-        <button class="header__add-project-btn">
-            <div class="header__add-project-btn__plus">+</div>
-            Add project
-        </button>
+<!--        <SideBarButton @onShowSideBar="handleShowSideBar"/>-->
+        <div class="header__content">
+            <NavBar/>
+            <Search/>
+            <RegisterLink/>
+            <button class="header__add-project-btn">
+                <div class="header__add-project-btn__plus">+</div>
+                Add project
+            </button>
+        </div>
     </header>
 </template>
 
@@ -36,15 +38,23 @@
     .header {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        padding: 25px 30px;
+        padding: 25px 30px 25px 0;
+
+        &__content {
+            display: flex;
+            max-width: 1260px;
+        }
 
         &__add-project-btn {
             @include button(10px 22px);
             display: flex;
+            white-space: nowrap;
+            align-items: center;
 
             &__plus {
-                padding-top: 1px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 background: #fff;
                 opacity: .5;
                 color: $mid-light-blue;

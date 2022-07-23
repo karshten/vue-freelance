@@ -3,13 +3,13 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 /* Убираем внутренние отступы */
 ul[class],
 ol[class] {
-  padding: 0;
+    padding: 0;
 }
 
 /* Убираем внешние отступы */
@@ -27,36 +27,44 @@ figcaption,
 blockquote,
 dl,
 dd {
-  margin: 0;
+    margin: 0;
 }
 
 /* Выставляем основные настройки по-умолчанию для body */
 body {
-  font-family: "SF Pro Display", sans-serif;
-  min-height: 100vh;
-  scroll-behavior: smooth;
-  text-rendering: optimizeSpeed;
-  line-height: 1.5;
+    font-family: "SF Pro Display", sans-serif;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
 }
 
 /* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
 ul[class],
 ol[class] {
-  list-style: none;
+    list-style: none;
 }
 
 /* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
 a:not([class]) {
-  text-decoration-skip-ink: auto;
+    text-decoration-skip-ink: auto;
+}
+
+a {
+    text-decoration: none;
 }
 
 /* Упрощаем работу с изображениями */
 img {
-  max-width: 100%;
-  display: block;
+    max-width: 100%;
+    display: block;
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 1260px;
     margin: 0 auto;
+}
+
+.small-container {
+    max-width: 825px;
 }

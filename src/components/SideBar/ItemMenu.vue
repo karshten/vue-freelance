@@ -1,5 +1,8 @@
 <template>
-    <button @mouseenter="handleHover" @mouseleave="handleLeave"
+    <router-link
+            @mouseenter="handleHover"
+            @mouseleave="handleLeave"
+            to="/"
             class="menu-list__item"
             :class="{hover: isHover}">
         <div class="menu-list__item__icon">
@@ -23,7 +26,7 @@
                 </g>
             </svg>
         </div>
-    </button>
+    </router-link>
 </template>
 
 <script>
