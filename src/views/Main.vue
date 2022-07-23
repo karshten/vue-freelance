@@ -1,12 +1,10 @@
 <template>
-    <Header/>
+<h2>Main</h2>
 </template>
 
 <script>
-    import Header from "../components/Header";
     export default {
         name: "Main",
-        components: {Header}
     }
 </script>
 
