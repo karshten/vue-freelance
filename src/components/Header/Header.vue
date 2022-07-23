@@ -1,10 +1,13 @@
 <template>
     <header class="header">
-        <SideBarButton/>
+        <SideBarButton @onShowSideBar="handleShowSideBar"/>
         <NavBar/>
         <Search/>
         <RegisterLink/>
-        <button class="header__add-project-btn"><div class="header__add-project-btn__plus">+</div>Add project</button>
+        <button class="header__add-project-btn">
+            <div class="header__add-project-btn__plus">+</div>
+            Add project
+        </button>
     </header>
 </template>
 
@@ -13,9 +16,17 @@
     import NavBar from "./NavBar.vue";
     import Search from "./Search.vue";
     import RegisterLink from "./Authorization.vue";
+
     export default {
-        components:{SideBarButton, NavBar, Search, RegisterLink},
+        components: {SideBarButton, NavBar, Search, RegisterLink},
         name: "Header",
+        setup(props, context) {
+            const handleShowSideBar = () => {
+                context.emit('onShowSideBar')
+            }
+
+            return {handleShowSideBar}
+        }
     }
 </script>
 
@@ -31,7 +42,7 @@
         &__add-project-btn {
             @include button(10px 22px);
             display: flex;
-            
+
             &__plus {
                 padding-top: 1px;
                 background: #fff;

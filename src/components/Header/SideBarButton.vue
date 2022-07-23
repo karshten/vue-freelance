@@ -1,7 +1,7 @@
 <template>
     <ul class="sidebar">
         <li class="sidebar__button">
-            <button>
+            <button @click="handleShowSideBar">
                 <div></div>
                 <div></div>
                 <div></div>
@@ -12,8 +12,16 @@
 </template>
 
 <script>
+    import {ref} from 'vue'
     export default {
-        name: "SideBarButton"
+        name: "SideBarButton",
+        setup(props, context){
+            const handleShowSideBar = () =>{
+                context.emit('onShowSideBar')
+            }
+
+            return {handleShowSideBar}
+        }
     }
 </script>
 
