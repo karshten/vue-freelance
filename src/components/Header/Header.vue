@@ -1,13 +1,12 @@
 <template>
     <header class="header">
-<!--        <SideBarButton @onShowSideBar="handleShowSideBar"/>-->
         <div class="header__content">
             <NavBar/>
             <Search/>
             <RegisterLink/>
             <button class="header__add-project-btn">
                 <div class="header__add-project-btn__plus">+</div>
-                Add project
+                <span>Add project</span>
             </button>
         </div>
     </header>
@@ -23,11 +22,6 @@
         components: {SideBarButton, NavBar, Search, RegisterLink},
         name: "Header",
         setup(props, context) {
-            const handleShowSideBar = () => {
-                context.emit('onShowSideBar')
-            }
-
-            return {handleShowSideBar}
         }
     }
 </script>
@@ -36,9 +30,10 @@
     @import "../../assets/scss/variables";
 
     .header {
+        background-color: #fff;
         display: flex;
         align-items: center;
-        padding: 25px 30px 25px 0;
+        padding: 25px 30px 25px 46px;
 
         &__content {
             display: flex;
@@ -50,6 +45,7 @@
             display: flex;
             white-space: nowrap;
             align-items: center;
+            justify-content: center;
 
             &__plus {
                 display: flex;
@@ -64,6 +60,32 @@
                 height: 16px;
                 font-size: 12px;
                 font-weight: 700;
+            }
+        }
+    }
+
+    @media (max-width: 1180px) {
+        .header {
+
+            &__content {
+
+            }
+
+            &__add-project-btn {
+
+                padding: 12px;
+
+                &__plus {
+                    margin: 0;
+                    background-color: inherit;
+                    color: #fff;
+                    font-size: 24px;
+                    font-weight: normal;
+                }
+
+                & span {
+                    display: none;
+                }
             }
         }
     }

@@ -1,65 +1,58 @@
 <template>
-    <ul class="sidebar">
-        <li class="sidebar__button">
-            <button @click="handleShowSideBar">
+    <Transition>
+        <div class="sidebar-btn">
+            <button>
                 <div></div>
                 <div></div>
                 <div></div>
             </button>
-        </li>
-        <li class="sidebar__label">Constructor</li>
-    </ul>
+        </div>
+    </Transition>
 </template>
 
 <script>
-    import {ref} from 'vue'
     export default {
         name: "SideBarButton",
-        setup(props, context){
-            const handleShowSideBar = () =>{
-                context.emit('onShowSideBar')
-            }
-
-            return {handleShowSideBar}
-        }
+        props: ['showSidebar']
     }
 </script>
 
 <style lang="scss" scoped>
     @import "../../assets/scss/variables.scss";
 
-    .header {
-        & .sidebar {
-            display: flex;
-            align-items: center;
+    .sidebar-btn {
+        display: none;
+        position: fixed;
+        top: 28px;
+        left: 36px;
 
-            &__button {
-                & button {
-                    padding-top: 10px;
-                    cursor: pointer;
-                    border: none;
-                }
+        & button {
+            padding-top: 10px;
+            cursor: pointer;
+            border: none;
+        }
 
-                & div {
-                    position: relative;
-                    margin-bottom: 4px;
-                    width: 22px;
-                    height: 2px;
-                    background-color: $text-light-blue;
-                }
-            }
+        & div {
+            position: relative;
+            margin-bottom: 4px;
+            width: 22px;
+            height: 2px;
+            background-color: $text-light-blue;
+        }
+    }
 
-            &__label {
-                margin-left: 30px;
-                color: $mid-dark-blue;
-                font-size: 18px;
-                font-weight: 700;
-            }
-            @media (max-width: 1350px) {
-                .sidebar__label {
-                    display: none;
-                }
-            }
+    .v-enter-active,
+    .v-leave-active {
+        transition: opacity .7s ease;
+    }
+
+    .v-enter-from,
+    .v-leave-to {
+        opacity: 0;
+    }
+    @media (max-width: 1200px) {
+        .sidebar-btn {
+            display: block;
         }
     }
 </style>

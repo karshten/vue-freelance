@@ -63,7 +63,7 @@
 
             &__item {
                 display: flex;
-                margin-right: 36px;
+                margin-right: 3.5vw;
             }
 
             &__icon {
@@ -75,6 +75,18 @@
                 color: $low-dark-blue;
                 font-size: 13px;
                 font-weight: 700;
+            }
+        }
+    }
+
+    @media (max-width: 1280px) {
+        .header {
+            & .navbar {
+
+                &__item {
+                    display: flex;
+                    margin-right: 2.5vw;
+                }
             }
         }
     }

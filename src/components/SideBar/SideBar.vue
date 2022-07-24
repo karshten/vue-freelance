@@ -1,12 +1,10 @@
 <template>
     <Transition>
-        <aside v-if="showSideBar" class="wrapper-bar">
-            <div class="sidebar">
-                <TopButtons/>
-                <AccountInfo/>
-                <MenuList/>
-                <SkillsList/>
-            </div>
+        <aside v-if="showSideBar" class="sidebar">
+            <TopButtons/>
+            <AccountInfo/>
+            <MenuList/>
+            <SkillsList/>
         </aside>
     </Transition>
 </template>
@@ -18,27 +16,26 @@
     import ItemSkill from "./ItemSkill.vue";
     import MenuList from "./MenuList.vue";
     import SkillsList from "./SkillsList.vue";
+    import {useRoute} from "vue-router";
 
     export default {
         name: "SideBar",
         props: ['showSideBar'],
         components: {SkillsList, MenuList, ItemSkill, ItemMenu, AccountInfo, TopButtons},
+        setup() {
+
+        }
     }
 </script>
 
 <style lang="scss" scoped>
     @import "src/assets/scss/variables.scss";
 
-    .wrapper-bar {
-        width: 300px;
-        height: 1px;
-    }
-
     .sidebar {
         padding: 35px 20px;
         z-index: 100;
         background-color: $high-dark-blue;
-        width: 300px;
+        width: 340px;
         height: 100vh;
         position: fixed;
         top: 0;
@@ -53,5 +50,16 @@
     .v-enter-from,
     .v-leave-to {
         opacity: 0;
+    }
+
+    @media (max-width: 1366px) {
+        .sidebar {
+            width: 300px;
+        }
+    }
+    @media (max-width: 1280px) {
+        .sidebar {
+            width: 260px;
+        }
     }
 </style>
