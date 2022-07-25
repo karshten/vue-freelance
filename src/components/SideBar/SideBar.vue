@@ -1,7 +1,8 @@
 <template>
-    <Transition>
-        <aside v-if="showSideBar" class="sidebar">
-            <TopButtons/>
+    <Transition name="side">
+        <aside v-if="showSidebar" class="sidebar">
+            <NavBar :isNavbarOpen="isNavbarOpen" class="sidebar__navbar"/>
+            <TopButtons @clickNavbar="handleOpenNavrbar"/>
             <AccountInfo/>
             <MenuList/>
             <SkillsList/>
@@ -16,14 +17,26 @@
     import ItemSkill from "./ItemSkill.vue";
     import MenuList from "./MenuList.vue";
     import SkillsList from "./SkillsList.vue";
-    import {useRoute} from "vue-router";
+    import NavBar from "../Header/NavBar.vue";
+    import {ref, onMounted, onUnmounted} from 'vue'
 
     export default {
         name: "SideBar",
-        props: ['showSideBar'],
-        components: {SkillsList, MenuList, ItemSkill, ItemMenu, AccountInfo, TopButtons},
+        props: ['showSidebar'],
+        components: {NavBar, SkillsList, MenuList, ItemSkill, ItemMenu, AccountInfo, TopButtons},
         setup() {
+            const isNavbarOpen = ref(false)
 
+            onMounted(() => {
+                console.log('dasdas')
+                isNavbarOpen.value = false
+            })
+
+            const handleOpenNavrbar = () => {
+                isNavbarOpen.value = !isNavbarOpen.value
+            }
+
+            return {isNavbarOpen, handleOpenNavrbar}
         }
     }
 </script>
@@ -36,20 +49,12 @@
         z-index: 100;
         background-color: $high-dark-blue;
         width: 340px;
-        height: 100vh;
-        position: fixed;
-        top: 0;
+        min-height: 100vh;
         overflow: auto;
-    }
 
-    .v-enter-active,
-    .v-leave-active {
-        transition: opacity 0.5s ease;
-    }
-
-    .v-enter-from,
-    .v-leave-to {
-        opacity: 0;
+        &__navbar {
+            display: none;
+        }
     }
 
     @media (max-width: 1366px) {
@@ -57,9 +62,40 @@
             width: 300px;
         }
     }
+
     @media (max-width: 1280px) {
         .sidebar {
             width: 260px;
         }
+    }
+
+    @media (max-width: 1100px) {
+        .sidebar {
+            position: fixed;
+            top: 0;
+        }
+    }
+
+    @media (max-width: 970px) {
+        .sidebar {
+
+            &__navbar {
+                display: block;
+            }
+        }
+    }
+
+    .side-enter-active,
+    .side-leave-active {
+        transition: all .6s ease-in-out;
+    }
+
+    .side-enter-from,
+    .side-leave-to {
+        transform: translateX(-1000px);
+    }
+
+    .side-enter-to {
+        transform: translateX(0);
     }
 </style>

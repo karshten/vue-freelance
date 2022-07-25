@@ -15,7 +15,7 @@
                 </g>
             </svg>
         </button>
-        <button class="sidebar__buttons__btn">
+        <button @click="handleClickNavbar" class="sidebar__buttons__btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="4" viewBox="0 0 14 4" fill="none">
                 <path fill-rule="evenodd" clip-rule="evenodd"
                       d="M2.2001 0.400002C1.3201 0.400002 0.600098 1.12 0.600098 2C0.600098 2.88 1.3201 3.6 2.2001 3.6C3.0801 3.6 3.8001 2.88 3.8001 2C3.8001 1.12 3.0801 0.400002 2.2001 0.400002ZM11.8001 0.400002C10.9201 0.400002 10.2001 1.12 10.2001 2C10.2001 2.88 10.9201 3.6 11.8001 3.6C12.6801 3.6 13.4001 2.88 13.4001 2C13.4001 1.12 12.6801 0.400002 11.8001 0.400002ZM7.0001 0.400002C6.1201 0.400002 5.4001 1.12 5.4001 2C5.4001 2.88 6.1201 3.6 7.0001 3.6C7.8801 3.6 8.6001 2.88 8.6001 2C8.6001 1.12 7.8801 0.400002 7.0001 0.400002Z"
@@ -36,6 +36,12 @@
 <script>
     export default {
         name: "Button",
+        setup(props, context) {
+            const handleClickNavbar = () => {
+                context.emit('clickNavbar')
+            }
+            return {handleClickNavbar}
+        }
     }
 </script>
 
@@ -48,6 +54,7 @@
             justify-content: space-between;
 
             &__btn {
+                z-index: 200;
                 display: flex;
                 align-items: center;
                 justify-content: center;

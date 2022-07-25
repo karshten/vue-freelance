@@ -51,7 +51,7 @@
         opacity: 0;
     }
 
-    @media (max-width: 1080px) {
+    @media (max-width: 1100px) {
         .sidebar-btn {
             display: block;
         }

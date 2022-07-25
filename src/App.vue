@@ -1,10 +1,8 @@
 <template>
     <div class="wrapper">
-        <div class="wrapper__sidebar">
-            <SideBar
-                    :showSideBar="showSideBar"
-            />
-        </div>
+        <SideBar
+                :showSidebar="showSideBar"
+        />
         <SideBarButton @click="handleClickSideBar(true)"/>
         <div @click="handleClickSideBar(false)" class="wrapper__content">
             <Header/>
@@ -26,17 +24,19 @@
 
     export default {
         components: {SideBarButton, SideBar, Header},
-        setup(props, context) {
+        setup() {
 
             const route = useRoute()
             const path = computed(() => route.path)
 
             const showSideBar = ref(false)
 
+
             onMounted(() => {
-                setTimeout(() => showSideBar.value =
-                    // path.value !== '/' &&
-                    innerWidth > 1100
+                setTimeout(() =>
+                    showSideBar.value =
+                        // path.value !== '/' &&
+                        innerWidth > 1100
                 )
             })
 
@@ -61,22 +61,6 @@
                 padding-left: 30px;
             }
         }
-
-        &__sidebar {
-            width: 340px;
-        }
-    }
-
-    @media (max-width: 1366px) {
-        .wrapper__sidebar {
-            width: 300px;
-        }
-    }
-
-    @media (max-width: 1280px) {
-        .wrapper__sidebar {
-            width: 260px;
-        }
     }
 
     @media (max-width: 1100px) {
@@ -94,6 +78,7 @@
             }
         }
     }
+
     @media (max-width: 375px) {
         .wrapper {
 
