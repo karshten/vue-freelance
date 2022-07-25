@@ -22,7 +22,8 @@
 
     export default {
         name: "SignIn",
-        setup() {}
+        setup() {
+        }
     }
 </script>
 
@@ -31,6 +32,7 @@
 
     .header {
         & .authorize {
+            padding-left: 12.5px;
             display: flex;
             font-weight: 700;
             font-size: 13px;
@@ -51,7 +53,7 @@
             }
         }
     }
-    
+
     @media (max-width: 1500px) {
         .header {
 
@@ -67,4 +69,27 @@
             }
         }
     }
+
+    @media (max-width: 970px) {
+        .header .authorize {
+            &__icon {
+                & svg {
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 514px) {
+        .header .authorize {
+            &__icon {
+                & svg {
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+        }
+    }
+
 </style>

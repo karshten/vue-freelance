@@ -1,7 +1,7 @@
 <template>
     <header class="header">
         <div class="header__content">
-            <NavBar/>
+            <NavBar class="header__navbar"/>
             <Search/>
             <RegisterLink/>
             <button class="header__add-project-btn">
@@ -31,9 +31,7 @@
 
     .header {
         background-color: #fff;
-        display: flex;
-        align-items: center;
-        padding: 25px 30px 25px 46px;
+        padding: 25px 30px;
 
         &__content {
             display: flex;
@@ -67,12 +65,7 @@
     @media (max-width: 1180px) {
         .header {
 
-            &__content {
-
-            }
-
             &__add-project-btn {
-
                 padding: 12px;
 
                 &__plus {
@@ -85,6 +78,40 @@
 
                 & span {
                     display: none;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 1080px) {
+        .header {
+            padding: 25px 0;
+        }
+    }
+
+    @media (max-width: 970px) {
+        .header {
+            display: block;
+            padding: 25px 0;
+
+            &__content {
+                justify-content: space-between;
+            }
+
+            &__navbar {
+                display: none;
+            }
+        }
+    }
+
+    @media (max-width: 514px) {
+        .header {
+
+            &__add-project-btn {
+                padding: 6px;
+
+                &__plus {
+                    font-size: 20px;
                 }
             }
         }

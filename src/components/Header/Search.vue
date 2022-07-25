@@ -24,23 +24,54 @@
         & .search {
             display: flex;
             align-items: center;
-            margin: 0 25px;
+            padding: 0 25px 0 12.5px;
+            border-left: 2px solid #F2F3F5;;
+            border-right: 2px solid #F2F3F5;;
 
             &__icon {
                 border: none;
                 cursor: pointer;
                 margin-right: 10px;
+                background-color: inherit;
             }
 
             &__input {
                 width: 130px;
                 padding: 5px 10px;
                 border: none;
+                background-color: inherit;
+                outline-color: $text-blue;
 
                 &::placeholder {
                     color: $text-blue;
                     font-size: 13px;
                     font-weight: 700;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 970px) {
+        .header {
+            & .search {
+                padding: 0;
+                width: 100%;
+
+                &__input {
+                    width: 80%;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 514px) {
+        .header {
+            & .search {
+                margin-left: -10px;
+                flex-direction: row-reverse;
+
+                &__icon {
+                    margin: 0 0 0 10px;
                 }
             }
         }

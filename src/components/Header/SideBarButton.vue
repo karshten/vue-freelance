@@ -23,13 +23,13 @@
     .sidebar-btn {
         display: none;
         position: fixed;
-        top: 28px;
+        top: 34px;
         left: 36px;
 
         & button {
-            padding-top: 10px;
             cursor: pointer;
             border: none;
+            background-color: inherit;
         }
 
         & div {
@@ -50,9 +50,28 @@
     .v-leave-to {
         opacity: 0;
     }
-    @media (max-width: 1200px) {
+
+    @media (max-width: 1080px) {
         .sidebar-btn {
             display: block;
+        }
+    }
+    @media (max-width: 970px) {
+        .sidebar-btn {
+            left: 20px;
+        }
+    }
+
+    @media (max-width: 514px) {
+        .sidebar-btn {
+            top: 30px;
+            left: 10px;
+        }
+    }
+    @media (max-width: 375px) {
+        .sidebar-btn {
+            top: 30px;
+            left: 5px;
         }
     }
 </style>

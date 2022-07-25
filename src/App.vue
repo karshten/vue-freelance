@@ -31,17 +31,17 @@
             const route = useRoute()
             const path = computed(() => route.path)
 
-            const showSideBar = ref(null)
+            const showSideBar = ref(false)
 
             onMounted(() => {
                 setTimeout(() => showSideBar.value =
                     // path.value !== '/' &&
-                    innerWidth > 1080
+                    innerWidth > 1100
                 )
             })
 
             const handleClickSideBar = (boolean) => {
-                innerWidth > 1080 ? null : showSideBar.value = boolean
+                innerWidth > 1100 ? null : showSideBar.value = boolean
             }
 
             return {showSideBar, handleClickSideBar, path}
@@ -52,10 +52,14 @@
 <style lang="scss" scoped>
     .wrapper {
         display: flex;
-        background: #E4E7F0;
+        background: #FAFBFC;
 
         &__content {
             margin: 0 auto;
+
+            & main {
+                padding-left: 30px;
+            }
         }
 
         &__sidebar {
@@ -64,14 +68,38 @@
     }
 
     @media (max-width: 1366px) {
-        .sidebar {
+        .wrapper__sidebar {
             width: 300px;
         }
     }
 
     @media (max-width: 1280px) {
-        .sidebar {
+        .wrapper__sidebar {
             width: 260px;
+        }
+    }
+
+    @media (max-width: 1100px) {
+        .wrapper {
+            &__content {
+                margin: 0 auto;
+
+                & main {
+                    padding: 0;
+                }
+            }
+
+            &__sidebar {
+                width: 0;
+            }
+        }
+    }
+    @media (max-width: 375px) {
+        .wrapper {
+
+            &__content {
+                padding: 0 40px;
+            }
         }
     }
 </style>
