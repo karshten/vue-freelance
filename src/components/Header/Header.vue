@@ -1,7 +1,7 @@
 <template>
     <header class="header">
         <div class="header__content">
-            <NavBar class="header__navbar"/>
+            <NavBar :is-navbar-open="true" class="header__navbar"/>
             <Search/>
             <RegisterLink/>
             <button class="header__add-project-btn">
