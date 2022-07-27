@@ -1,5 +1,9 @@
 <template>
-    <h2>Main</h2>
+    <section>
+        <div class="container">
+            <h2>Main</h2>
+        </div>
+    </section>
 </template>
 
 <script>

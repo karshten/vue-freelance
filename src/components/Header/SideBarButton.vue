@@ -21,10 +21,8 @@
     @import "../../assets/scss/variables.scss";
 
     .sidebar-btn {
+        margin: 8px 15px 0 0;
         display: none;
-        position: fixed;
-        top: 34px;
-        left: 36px;
 
         & button {
             cursor: pointer;

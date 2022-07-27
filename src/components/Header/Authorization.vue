@@ -1,6 +1,6 @@
 <template>
     <div class="authorize">
-        <router-link to="/">
+        <router-link to="/signIn">
             <div class="authorize__icon">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -10,16 +10,14 @@
             </div>
         </router-link>
         <div class="authorize__links">
-            <router-link class="authorize__link" to="/">Sign in</router-link>
+            <router-link class="authorize__link" to="/signIn">Sign in</router-link>
             <p>or</p>
-            <router-link class="authorize__link" to="/">Join</router-link>
+            <router-link class="authorize__link" to="/signUp">Join</router-link>
         </div>
     </div>
 </template>
 
 <script>
-    import {ref, computed} from 'vue'
-
     export default {
         name: "SignIn",
         setup() {
@@ -30,48 +28,46 @@
 <style lang="scss" scoped>
     @import "../../assets/scss/variables";
 
-    .header {
-        & .authorize {
-            padding-left: 12.5px;
+    .authorize {
+        display: flex;
+        font-weight: 700;
+        font-size: 13px;
+        align-items: center;
+
+        &__links {
             display: flex;
-            font-weight: 700;
-            font-size: 13px;
-            align-items: center;
+        }
 
-            &__links {
-                display: flex;
-            }
+        &__link {
+            text-decoration: none;
+            margin: 0 10px;
+            color: $low-dark-blue;
+        }
 
-            &__link {
-                text-decoration: none;
-                margin: 0 10px;
-                color: $low-dark-blue;
-            }
-
-            & p {
-                color: $text-light-blue;
-            }
+        & p {
+            color: $text-light-blue;
         }
     }
 
     @media (max-width: 1500px) {
-        .header {
+        .authorize {
 
-            & .authorize {
-
-                &__links {
-                    display: none;
-                }
-
-                &__icon {
-                    margin-right: 20px;
-                }
+            &__links {
+                display: none;
             }
         }
     }
 
+    .mainHeader .main-auth .authorize__links {
+        display: flex;
+    }
+
     @media (max-width: 970px) {
-        .header .authorize {
+        .authorize {
+            &__links {
+                display: flex;
+            }
+
             &__icon {
                 & svg {
                     width: 25px;
@@ -79,10 +75,19 @@
                 }
             }
         }
+        .mainHeader .main-auth .authorize__links {
+            display: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .authorize .authorize__links {
+            display: none;
+        }
     }
 
     @media (max-width: 514px) {
-        .header .authorize {
+        .authorize {
             &__icon {
                 & svg {
                     width: 15px;

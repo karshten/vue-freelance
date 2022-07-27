@@ -1,7 +1,7 @@
 <template>
     <Transition name="navbar">
-        <nav v-if="isNavbarOpen">
-            <ul class="navbar">
+        <nav v-if="isNavbarOpen" class="navbar">
+            <ul class="navbar__list">
                 <li class="navbar__item">
                     <div class="navbar__icon">
                         <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -50,9 +50,15 @@
 </template>
 
 <script>
+    import {onMounted} from 'vue'
     export default {
         name: "NavBar",
-        props: ['isNavbarOpen']
+        props: ['isNavbarOpen'],
+        setup(props, context){
+            onMounted(()=>{
+                context.emit('closeNavbar')
+            })
+        }
     }
 </script>
 
@@ -61,11 +67,14 @@
 
     .navbar {
         padding-top: 10px;
-        display: flex;
+
+        &__list {
+            display: flex;
+        }
 
         &__item {
             display: flex;
-            margin-right: 3.5vw;
+            margin-right: 3vw;
         }
 
         &__icon {
@@ -111,9 +120,28 @@
         }
     }
 
+    @media (max-width: 1100px) {
+        .navbar {
+
+            &__list {
+                display: flex;
+                max-width: 500px;
+                justify-content: space-between;
+            }
+
+            &__item {
+                margin-right: 0;
+            }
+        }
+    }
+
     @media (max-width: 970px) {
         .navbar {
-            display: block;
+            display: none;
+
+            &__list {
+                flex-direction: column;
+            }
 
             &__icon {
                 display: none;

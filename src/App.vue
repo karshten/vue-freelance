@@ -1,15 +1,13 @@
 <template>
     <div class="wrapper">
         <SideBar
+                @closeSidebar="handleToggleSideBar(false)"
                 :showSidebar="showSideBar"
         />
-        <SideBarButton @click="handleClickSideBar(true)"/>
-        <div @click="handleClickSideBar(false)" class="wrapper__content">
-            <Header/>
-            <main>
-                <div class="container">
-                    <RouterView/>
-                </div>
+        <div class="wrapper__content">
+            <Header :is-main="route.path === '/'" @openSidebar="handleToggleSideBar(true)"/>
+            <main @click="handleToggleSideBar(false)">
+                <RouterView/>
             </main>
         </div>
     </div>
@@ -18,7 +16,7 @@
 <script>
     import Header from "./components/Header/Header.vue";
     import SideBar from "./components/SideBar/SideBar.vue";
-    import {ref, onMounted, computed} from "vue"
+    import {ref} from "vue"
     import SideBarButton from "./components/Header/SideBarButton.vue";
     import {useRoute} from "vue-router";
 
@@ -27,32 +25,22 @@
         setup() {
 
             const route = useRoute()
-            const path = computed(() => route.path)
+            const showSideBar = ref(innerWidth > 1100)
 
-            const showSideBar = ref(false)
-
-
-            onMounted(() => {
-                setTimeout(() =>
-                    showSideBar.value =
-                        // path.value !== '/' &&
-                        innerWidth > 1100
-                )
-            })
-
-            const handleClickSideBar = (boolean) => {
+            const handleToggleSideBar = (boolean) => {
                 innerWidth > 1100 ? null : showSideBar.value = boolean
             }
 
-            return {showSideBar, handleClickSideBar, path}
+            return {showSideBar, handleToggleSideBar, route}
         }
     }
 </script>
 
 <style lang="scss" scoped>
     .wrapper {
+        margin: 0 auto;
+        max-width: 1600px;
         display: flex;
-        background: #FAFBFC;
 
         &__content {
             margin: 0 auto;
@@ -65,6 +53,8 @@
 
     @media (max-width: 1100px) {
         .wrapper {
+            display: block;
+
             &__content {
                 margin: 0 auto;
 
@@ -72,18 +62,14 @@
                     padding: 0;
                 }
             }
-
-            &__sidebar {
-                width: 0;
-            }
         }
     }
 
     @media (max-width: 375px) {
         .wrapper {
 
-            &__content {
-                padding: 0 40px;
+            &__content main {
+                padding: 0 20px;
             }
         }
     }
