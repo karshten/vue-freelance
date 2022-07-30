@@ -69,4 +69,11 @@
             }
         }
     }
+
+    .mainHeader {
+
+        & .search {
+            padding: 0;
+        }
+    }
 </style>

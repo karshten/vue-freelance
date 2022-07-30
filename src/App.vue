@@ -1,11 +1,12 @@
 <template>
-    <div class="wrapper">
+    <div class="wrapper" :class="{mainWrapper:isMainPage}">
         <SideBar
                 @closeSidebar="handleToggleSideBar(false)"
                 :showSidebar="showSideBar"
+                :class="{mainSideBar: isMainPage}"
         />
         <div class="wrapper__content">
-            <Header :is-main="route.path === '/'" @openSidebar="handleToggleSideBar(true)"/>
+            <Header :is-main="isMainPage" @openSidebar="handleToggleSideBar(true)"/>
             <main @click="handleToggleSideBar(false)">
                 <RouterView/>
             </main>
@@ -16,7 +17,7 @@
 <script>
     import Header from "./components/Header/Header.vue";
     import SideBar from "./components/SideBar/SideBar.vue";
-    import {ref} from "vue"
+    import {onMounted, ref, computed} from "vue"
     import SideBarButton from "./components/Header/SideBarButton.vue";
     import {useRoute} from "vue-router";
 
@@ -25,13 +26,19 @@
         setup() {
 
             const route = useRoute()
-            const showSideBar = ref(innerWidth > 1100)
+            const showSideBar = ref(false)
+            const path = computed(() => route.path)
+            const isMainPage = ref(path.value === '/')
+
+            onMounted(() => {
+                showSideBar.value = path.value !== '/' && innerWidth > 1100
+            })
 
             const handleToggleSideBar = (boolean) => {
                 innerWidth > 1100 ? null : showSideBar.value = boolean
             }
 
-            return {showSideBar, handleToggleSideBar, route}
+            return {showSideBar, handleToggleSideBar, route, isMainPage}
         }
     }
 </script>
@@ -70,6 +77,15 @@
             &__content main {
                 padding: 0 20px;
             }
+        }
+    }
+
+    .mainWrapper {
+        display: block;
+
+        & .mainSideBar {
+            position: absolute;
+            top: 0;
         }
     }
 </style>

@@ -6,6 +6,9 @@
                 <div></div>
                 <div></div>
             </button>
+            <label class="sidebar-btn__label">
+                Constructor
+            </label>
         </div>
     </Transition>
 </template>
@@ -21,10 +24,19 @@
     @import "../../assets/scss/variables.scss";
 
     .sidebar-btn {
-        margin: 8px 15px 0 0;
         display: none;
+        align-items: center;
+        border-right: 2px solid #F2F3F5;
+        padding-right: 45px;
+
+        &__label {
+            cursor: pointer;
+            color: $low-dark-blue;
+            font-weight: 700;
+        }
 
         & button {
+            margin-right: 36px;
             cursor: pointer;
             border: none;
             background-color: inherit;
@@ -54,6 +66,7 @@
             display: block;
         }
     }
+
     @media (max-width: 970px) {
         .sidebar-btn {
             left: 20px;
@@ -66,10 +79,15 @@
             left: 10px;
         }
     }
+
     @media (max-width: 375px) {
         .sidebar-btn {
             top: 30px;
             left: 5px;
         }
+    }
+
+    .mainHeader .mainSideBarBtn {
+        display: flex;
     }
 </style>

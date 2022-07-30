@@ -22,7 +22,7 @@
     import MenuList from "./MenuList.vue";
     import SkillsList from "./SkillsList.vue";
     import NavBar from "../Header/NavBar.vue";
-    import {ref, computed} from 'vue'
+    import {ref, computed, onMounted} from 'vue'
     import {useRoute} from "vue-router";
 
     export default {
@@ -54,7 +54,7 @@
     @import "src/assets/scss/variables.scss";
 
     .sidebar {
-        display: inline-block;
+        display: none;
         padding: 35px 20px;
         z-index: 100;
         background-color: $high-dark-blue;

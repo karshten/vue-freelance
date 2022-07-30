@@ -70,6 +70,7 @@
 
         &__list {
             display: flex;
+            max-width: 500px;
         }
 
         &__item {

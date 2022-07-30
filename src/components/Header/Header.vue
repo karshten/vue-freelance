@@ -1,14 +1,23 @@
 <template>
     <header :class="{mainHeader: isMain}" v-if="!isValidPage" class="header">
         <div class="header__content">
-            <SideBarButton @click="handelOpenSidebar"/>
+            <SideBarButton @click="handelOpenSidebar" :class="{mainSideBarBtn: isMain}"/>
             <NavBar :is-navbar-open="true" class="header__navbar"/>
             <Search/>
-            <RegisterLink :is-main="isMain"/>
-            <button class="header__add-project-btn">
-                <div class="header__add-project-btn__plus">+</div>
-                <span>Add project</span>
-            </button>
+            <div class="mainHeader__right-content" v-if="isMain">
+                <RegisterLink :is-main="isMain"/>
+                <button class="header__add-project-btn">
+                    <div class="header__add-project-btn__plus">+</div>
+                    <span>Add project</span>
+                </button>
+            </div>
+            <template v-else>
+                <RegisterLink :is-main="isMain"/>
+                <button class="header__add-project-btn">
+                    <div class="header__add-project-btn__plus">+</div>
+                    <span>Add project</span>
+                </button>
+            </template>
         </div>
     </header>
 </template>
@@ -18,13 +27,12 @@
     import NavBar from "./NavBar.vue";
     import Search from "./Search.vue";
     import RegisterLink from "./Authorization.vue";
-    import {computed} from 'vue'
+    import {computed, ref} from 'vue'
     import {useRoute} from "vue-router";
 
     export default {
         components: {SideBarButton, NavBar, Search, RegisterLink},
         name: "Header",
-        props: ['isMain'],
         setup(props, context) {
 
             const route = useRoute()
@@ -32,10 +40,12 @@
             const invalidPathsForSideBar = ['/signUp', '/signIn']
             const isValidPage = computed(() => invalidPathsForSideBar.some(itemPath => path.value === itemPath))
 
-            const handelOpenSidebar = () =>{
+            const handelOpenSidebar = () => {
                 context.emit('openSidebar')
             }
-            return {isValidPage, handelOpenSidebar}
+
+            const isMain = computed(() => route.path === '/')
+            return {isValidPage, handelOpenSidebar, isMain}
         }
     }
 </script>
@@ -44,6 +54,7 @@
     @import "../../assets/scss/variables";
 
     .header {
+        width: 100%;
         background: #fff;
         padding: 25px 30px;
 
@@ -78,8 +89,14 @@
         }
     }
 
-    .mainHeader .header__content {
-        max-width: 1360px;
+    .mainHeader {
+        max-width: 1600px;
+
+        &__right-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 600px;
+        }
     }
 
     @media (max-width: 1180px) {
