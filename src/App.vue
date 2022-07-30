@@ -43,7 +43,6 @@
         display: flex;
 
         &__content {
-            margin: 0 auto;
 
             & main {
                 padding-left: 30px;
