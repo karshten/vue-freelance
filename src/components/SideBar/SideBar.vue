@@ -54,7 +54,6 @@
     @import "src/assets/scss/variables.scss";
 
     .sidebar {
-        display: none;
         padding: 35px 20px;
         z-index: 100;
         background-color: $high-dark-blue;

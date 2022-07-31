@@ -17,7 +17,7 @@
 <script>
     import Header from "./components/Header/Header.vue";
     import SideBar from "./components/SideBar/SideBar.vue";
-    import {onMounted, ref, computed} from "vue"
+    import {ref, computed} from "vue"
     import SideBarButton from "./components/Header/SideBarButton.vue";
     import {useRoute} from "vue-router";
 
@@ -26,13 +26,9 @@
         setup() {
 
             const route = useRoute()
-            const showSideBar = ref(false)
+            const showSideBar = ref(innerWidth > 1100)
             const path = computed(() => route.path)
-            const isMainPage = ref(path.value === '/')
-
-            onMounted(() => {
-                showSideBar.value = path.value !== '/' && innerWidth > 1100
-            })
+            const isMainPage = computed(() => path.value === '/')
 
             const handleToggleSideBar = (boolean) => {
                 innerWidth > 1100 ? null : showSideBar.value = boolean
@@ -87,6 +83,10 @@
         & .mainSideBar {
             position: absolute;
             top: 0;
+        }
+
+        & .mainSideBar {
+            display: none;
         }
     }
 </style>
