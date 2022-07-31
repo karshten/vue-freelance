@@ -104,6 +104,11 @@
             flex-direction: column;
             align-items: center;
             margin-bottom: 80px;
+            transition: .3s linear;
+
+            &:hover {
+                transform: scale(1.1);
+            }
         }
     }
 </style>
