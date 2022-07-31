@@ -1,0 +1,13 @@
+<template>
+    
+</template>
+
+<script>
+    export default {
+        name: "Artists"
+    }
+</script>
+
+<style scoped>
+
+</style>
