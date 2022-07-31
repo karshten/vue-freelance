@@ -3,7 +3,6 @@
         <div class="container">
             <h2 class="latest-jobs__title">Latest Most <span>Popular</span> Jobs</h2>
             <div class="latest-jobs__internal-title"><h2>POPULAR</h2></div>
-
         </div>
     </section>
 </template>
