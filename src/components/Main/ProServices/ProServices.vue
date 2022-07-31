@@ -25,31 +25,31 @@
                 },
                 {
                     icon: 'src/assets/icons/services-icons/design-art.svg',
-                    title: 'Wev, Mobile Dev'
+                    title: 'Design & Art'
                 },
                 {
                     icon: 'src/assets/icons/services-icons/writing-trasnlation.svg',
-                    title: 'Wev, Mobile Dev'
+                    title: 'Writing Translation'
                 },
                 {
                     icon: 'src/assets/icons/services-icons/video-animation.svg',
-                    title: 'Wev, Mobile Dev'
+                    title: 'Video & Animation'
                 },
                 {
                     icon: 'src/assets/icons/services-icons/sales-marketing.svg',
-                    title: 'Wev, Mobile Dev'
+                    title: 'Sales & Marketing'
                 },
                 {
                     icon: 'src/assets/icons/services-icons/music-audio.svg',
-                    title: 'Wev, Mobile Dev'
+                    title: 'Music& Audio'
                 },
                 {
                     icon: 'src/assets/icons/services-icons/customers-service.svg',
-                    title: 'Wev, Mobile Dev'
+                    title: 'Customer Service'
                 },
                 {
                     icon: 'src/assets/icons/services-icons/engineering.svg',
-                    title: 'Wev, Mobile Dev'
+                    title: 'Engineering'
                 },
             ])
 
