@@ -44,7 +44,7 @@
     .intro {
         padding-top: 116px;
         position: relative;
-        border-bottom: 3px solid #aaa9a9;
+        border-bottom: 1px solid #c7c7c7;
         border-radius: 0px 0px 900px 900px / 0px 0px 100px 100px;
         padding-bottom: 140px;
 

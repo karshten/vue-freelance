@@ -3,13 +3,16 @@
         <div class="container">
             <h2 class="latest-jobs__title">Latest Most <span>Popular</span> Jobs</h2>
             <div class="latest-jobs__internal-title"><h2>POPULAR</h2></div>
+            <JobsList/>
         </div>
     </section>
 </template>
 
 <script>
+    import JobsList from "./JobsList.vue";
     export default {
-        name: "LatestJobs"
+        name: "LatestJobs",
+        components: {JobsList}
     }
 </script>
 
@@ -41,7 +44,7 @@
                 font-size: 120px;
                 font-weight: 800;
                 color: #002881;
-                opacity: 0.3;
+                opacity: 0.03;
             }
         }
     }
