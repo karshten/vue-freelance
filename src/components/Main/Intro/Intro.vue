@@ -3,14 +3,12 @@
         <div class="container">
             <h1 class="intro__title">Find <span>Freelance</span> Services for Your Business</h1>
             <div class="intro__internal-title"><h2>FIND</h2></div>
-            <img class="intro__home-img" src="../../../assets/images/home-page.jpg" alt="home-image">
+            <img class="intro__home-img" src="../../../assets/images/Main/home-page.jpg" alt="home-image">
 
             <div class="intro__search-content">
                 <IntroSearch/>
                 <div class="intro__tags">
-                    <router-link :to="'/'">
-                        <IntroTag v-for="tag in tags" :key="tag" :tag="tag"/>
-                    </router-link>
+                    <IntroTag v-for="tag in tags" :key="tag" :tag="tag"/>
                 </div>
                 <p class="intro__info">Expertly connects professionals and agencies to businesses seeking specialized
                     talent.</p>

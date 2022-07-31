@@ -1,6 +1,8 @@
 <template>
     <div class="tag">
-        <button class="tag__btn">{{tag}}</button>
+        <router-link :to="'/'">
+            <button class="tag__btn">{{tag}}</button>
+        </router-link>
     </div>
 </template>
 
