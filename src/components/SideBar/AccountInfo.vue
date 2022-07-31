@@ -1,7 +1,7 @@
 <template>
     <div class="sidebar__account account">
         <div class="account__avatar">
-            <img src="src/assets/images/userAvatar.png" alt="avatar">
+            <img src="src/assets/images/Main/userAvatar.png" alt="avatar">
         </div>
         <div class="account__info">
             <p class="account__info__name">Johnny Perry</p>
