@@ -3,7 +3,7 @@
         <div class="container">
             <h1 class="intro__title">Find <span>Freelance</span> Services for Your Business</h1>
             <div class="intro__internal-title"><h2>FIND</h2></div>
-            <img class="intro__home-img" src="src/assets/images/home-page.jpg" alt="home-image">
+            <img class="intro__home-img" src="../../../assets/images/home-page.jpg" alt="home-image">
 
             <div class="intro__search-content">
                 <IntroSearch/>
@@ -41,7 +41,7 @@
 
 <style scoped lang="scss">
 
-    @import "src/assets/scss/variables.scss";
+    @import "../../../assets/scss/variables";
 
     .intro {
         padding-top: 116px;

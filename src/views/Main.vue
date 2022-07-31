@@ -4,7 +4,7 @@
 
 <script>
     import {ref} from 'vue'
-    import Intro from "../components/Intro/Intro.vue";
+    import Intro from "../components/Main/Intro/Intro.vue";
 
     export default {
         name: "Main",

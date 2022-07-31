@@ -12,7 +12,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "src/assets/scss/variables.scss";
+    @import "../../../assets/scss/variables";
 
     .tag {
         display: inline-block;

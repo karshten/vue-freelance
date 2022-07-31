@@ -19,7 +19,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "src/assets/scss/variables.scss";
+    @import "../../../assets/scss/variables";
 
     .search {
         width: 350px;
