@@ -54,6 +54,7 @@
         }
 
         &__icon {
+            padding: 0px 6px;
             height: 99%;
             border-radius: 30px 0 0 30px;
             border: none;
