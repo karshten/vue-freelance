@@ -48,6 +48,7 @@
         margin: 0 auto;
         max-width: 1600px;
         display: flex;
+        background: #FAFBFC;
 
         &__content {
 
