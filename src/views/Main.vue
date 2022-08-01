@@ -4,6 +4,7 @@
     <ProServices/>
     <LatestJobs/>
     <Artists/>
+    <Works/>
 </template>
 
 <script>
@@ -13,10 +14,11 @@
     import ProServices from "../components/Main/ProServices/ProServices.vue";
     import LatestJobs from "../components/Main/LatestJobs/LatestJobs.vue";
     import Artists from "../components/Main/Artists/Artists.vue";
+    import Works from "../components/Main/Works/Works.vue";
 
     export default {
         name: "Main",
-        components: {Artists, LatestJobs, ProServices, Companies, Intro},
+        components: {Works, Artists, LatestJobs, ProServices, Companies, Intro},
         setup() {}
     }
 </script>
