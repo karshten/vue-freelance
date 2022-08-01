@@ -12,7 +12,7 @@
     import Companies from "../components/Main/Companies/Companies.vue";
     import ProServices from "../components/Main/ProServices/ProServices.vue";
     import LatestJobs from "../components/Main/LatestJobs/LatestJobs.vue";
-    import Artists from "../components/Main/Artists.vue";
+    import Artists from "../components/Main/Artists/Artists.vue";
 
     export default {
         name: "Main",
